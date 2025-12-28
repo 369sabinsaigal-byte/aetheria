@@ -1,0 +1,17 @@
+{
+    "configurations": [
+        
+
+        {
+            "name": "Containers: Node.js Launch",
+            "type": "docker",
+            "request": "launch",
+            "preLaunchTask": "docker-run: debug",
+            "platform": "node",
+            "node": {
+                "package": "${workspaceFolder}/crypto-vault-miniapp/node_modules/hermes-parser/package.json",
+                "localRoot": "${workspaceFolder}/crypto-vault-miniapp/node_modules/hermes-parser"
+            }
+        }
+    ]
+}

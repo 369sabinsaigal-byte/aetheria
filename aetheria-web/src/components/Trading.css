@@ -1,0 +1,575 @@
+.trading-container {
+  padding: 16px;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  min-height: 100vh;
+  color: #ffffff;
+}
+
+.development-banner {
+  background: linear-gradient(45deg, #ff6b35, #f7931e);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 500;
+  box-shadow: 0 2px 8px rgba(255, 107, 53, 0.3);
+}
+
+.trading-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 0 8px;
+}
+
+.trading-header h2 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 600;
+  background: linear-gradient(45deg, #00d4ff, #ff6b35);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.wallet-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.wallet-badge {
+  background: rgba(0, 212, 255, 0.2);
+  color: #00d4ff;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* Pair Selector */
+.pair-selector {
+  margin-bottom: 20px;
+}
+
+.pair-select {
+  width: 100%;
+  padding: 12px 16px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.pair-select:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.pair-select:focus {
+  outline: none;
+  border-color: #00d4ff;
+  box-shadow: 0 0 0 2px rgba(0, 212, 255, 0.2);
+}
+
+/* Tab Navigation */
+.tab-navigation {
+  display: flex;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 4px;
+  margin-bottom: 20px;
+}
+
+.tab-button {
+  flex: 1;
+  padding: 12px 16px;
+  background: transparent;
+  border: none;
+  border-radius: 8px;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.tab-button:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}
+
+.tab-button.active {
+  background: linear-gradient(45deg, #00d4ff, #0099cc);
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 212, 255, 0.3);
+}
+
+/* Trade Panel */
+.trade-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Order Book */
+.order-book {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  padding: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.order-book h3 {
+  margin: 0 0 16px 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.order-book-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.asks h4, .bids h4 {
+  margin: 0 0 12px 0;
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.asks h4 {
+  color: #ff4757;
+}
+
+.bids h4 {
+  color: #2ed573;
+}
+
+.order-book-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 8px;
+  border-radius: 6px;
+  margin-bottom: 4px;
+  font-size: 13px;
+  font-family: 'Courier New', monospace;
+}
+
+.order-book-row.ask {
+  background: rgba(255, 71, 87, 0.1);
+}
+
+.order-book-row.bid {
+  background: rgba(46, 213, 115, 0.1);
+}
+
+.price {
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.quantity {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* Order Form */
+.order-form {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  padding: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.order-form h3 {
+  margin: 0 0 20px 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.order-type-selector {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.type-button {
+  flex: 1;
+  padding: 12px 16px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.type-button:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.type-button.buy-active {
+  background: linear-gradient(45deg, #2ed573, #1e90ff);
+  border-color: #2ed573;
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(46, 213, 115, 0.3);
+}
+
+.type-button.sell-active {
+  background: linear-gradient(45deg, #ff4757, #ff6b35);
+  border-color: #ff4757;
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(255, 71, 87, 0.3);
+}
+
+.form-group {
+  margin-bottom: 16px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.order-type-select,
+.price-input,
+.quantity-input {
+  width: 100%;
+  padding: 12px 16px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  color: #ffffff;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.order-type-select:focus,
+.price-input:focus,
+.quantity-input:focus {
+  outline: none;
+  border-color: #00d4ff;
+  box-shadow: 0 0 0 2px rgba(0, 212, 255, 0.2);
+}
+
+.order-summary {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.submit-order {
+  width: 100%;
+  padding: 16px;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.submit-order:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.buy-order {
+  background: linear-gradient(45deg, #2ed573, #1e90ff);
+  color: #ffffff;
+  box-shadow: 0 4px 16px rgba(46, 213, 115, 0.4);
+}
+
+.buy-order:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(46, 213, 115, 0.5);
+}
+
+.sell-order {
+  background: linear-gradient(45deg, #ff4757, #ff6b35);
+  color: #ffffff;
+  box-shadow: 0 4px 16px rgba(255, 71, 87, 0.4);
+}
+
+.sell-order:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 71, 87, 0.5);
+}
+
+/* Orders Panel */
+.orders-panel,
+.positions-panel {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  padding: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.orders-panel h3,
+.positions-panel h3 {
+  margin: 0 0 20px 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.no-orders,
+.no-positions {
+  text-align: center;
+  padding: 40px 20px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.no-orders p,
+.no-positions p {
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+
+.create-order-btn {
+  padding: 12px 24px;
+  background: linear-gradient(45deg, #00d4ff, #0099cc);
+  border: none;
+  border-radius: 10px;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.create-order-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 212, 255, 0.4);
+}
+
+.orders-list,
+.positions-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.order-item,
+.position-item {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.order-item:hover,
+.position-item:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.order-info,
+.position-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.order-side {
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.order-side.buy {
+  background: rgba(46, 213, 115, 0.2);
+  color: #2ed573;
+}
+
+.order-side.sell {
+  background: rgba(255, 71, 87, 0.2);
+  color: #ff4757;
+}
+
+.order-pair,
+.position-pair {
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.order-type,
+.order-status {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.order-status.open {
+  color: #ffa502;
+}
+
+.order-status.filled {
+  color: #2ed573;
+}
+
+.order-status.cancelled {
+  color: #ff4757;
+}
+
+.order-details,
+.position-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.cancel-order-btn {
+  padding: 6px 12px;
+  background: rgba(255, 71, 87, 0.2);
+  border: 1px solid rgba(255, 71, 87, 0.4);
+  border-radius: 6px;
+  color: #ff4757;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.cancel-order-btn:hover {
+  background: rgba(255, 71, 87, 0.3);
+}
+
+.position-quantity {
+  font-weight: 600;
+  color: #00d4ff;
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+  .trading-container {
+    padding: 12px;
+  }
+  
+  .trading-header h2 {
+    font-size: 20px;
+  }
+  
+  .order-book-content {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  
+  .order-type-selector {
+    flex-direction: column;
+  }
+  
+  .order-info,
+  .position-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  
+  .order-details,
+  .position-details {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+}
+
+/* Dark mode adjustments for Telegram Mini App */
+@media (prefers-color-scheme: light) {
+  .trading-container {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    color: #212529;
+  }
+  
+  .trading-header h2 {
+    background: linear-gradient(45deg, #0066cc, #004499);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .order-book,
+  .order-form,
+  .orders-panel,
+  .positions-panel {
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  
+  .order-book h3,
+  .order-form h3,
+  .orders-panel h3,
+  .positions-panel h3 {
+    color: #212529;
+  }
+  
+  .pair-select,
+  .order-type-select,
+  .price-input,
+  .quantity-input {
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    color: #212529;
+  }
+  
+  .order-book-row.ask {
+    background: rgba(255, 71, 87, 0.1);
+  }
+  
+  .order-book-row.bid {
+    background: rgba(46, 213, 115, 0.1);
+  }
+  
+  .price {
+    color: #212529;
+  }
+  
+  .quantity {
+    color: #495057;
+  }
+  
+  .order-pair,
+  .position-pair {
+    color: #212529;
+  }
+  
+  .order-type,
+  .order-status {
+    color: #6c757d;
+  }
+  
+  .order-details,
+  .position-details {
+    color: #495057;
+  }
+  
+  .position-quantity {
+    color: #0066cc;
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "build": {
+    "builder": "NIXPACKS",
+    "installCommand": "npm install",
+    "buildCommand": "npm start",
+    "startCommand": "node index.js"
+  },
+  "env": {
+    "PORT": "3000",
+    "NODE_ENV": "production"
+  },
+  "healthcheckPath": "/health",
+  "restartPolicyType": "ON_FAILURE",
+  "restartPolicyMaxRetries": 10
+}

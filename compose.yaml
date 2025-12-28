@@ -1,0 +1,10 @@
+services:
+  hermesparser:
+    image: hermesparser
+    build:
+      context: crypto-vault-miniapp/node_modules/hermes-parser
+      dockerfile: ./Dockerfile
+    environment:
+      NODE_ENV: production
+    ports:
+      - 3000:3000

@@ -1,0 +1,61 @@
+version: '3.8'
+
+services:
+  # Backend API Service
+  crypto-vault-backend:
+    build:
+      context: ./crypto-vault-backend
+      dockerfile: Dockerfile
+    container_name: crypto-vault-backend
+    ports:
+      - "3002:3002"
+    environment:
+      - NODE_ENV=production
+      - PORT=3002
+      - DATABASE_URL=file:/app/data/exchange.db
+      - JWT_SECRET=your-secret-key-here
+      - REDIS_URL=redis://redis:6379
+    volumes:
+      - ./crypto-vault-backend/data:/app/data
+    depends_on:
+      - redis
+    networks:
+      - app-network
+    restart: unless-stopped
+
+  # Frontend Web Application
+  aetheria-web:
+    build:
+      context: ./aetheria-web
+      dockerfile: Dockerfile
+    container_name: aetheria-web
+    ports:
+      - "3000:80"
+    environment:
+      - NODE_ENV=production
+      - VITE_API_URL=http://localhost:3002
+    depends_on:
+      - crypto-vault-backend
+    networks:
+      - app-network
+    restart: unless-stopped
+
+  # Redis for caching and session management
+  redis:
+    image: redis:7-alpine
+    container_name: crypto-vault-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-data:/data
+    networks:
+      - app-network
+    restart: unless-stopped
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  redis-data:
+    driver: local

@@ -1,0 +1,59 @@
+.virtual-card {
+  position: relative;
+  width: 340px;
+  height: 214px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #0088cc 0%, #6c5ce7 100%);
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.virtual-card:hover {
+  transform: scale(1.02);
+}
+
+.holographic-gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    120deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.3) 50%,
+    transparent 100%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.virtual-card:hover .holographic-gradient {
+  animation: shimmer 2s infinite;
+  opacity: 1;
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.card-number {
+  font-family: var(--font-mono, ui-monospace, SFMono-Regular, Menlo, Monaco,
+      Consolas, "Liberation Mono", "Courier New", monospace);
+  font-size: 1.25rem;
+  letter-spacing: 0.1em;
+  color: #ffffff;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.card-balance {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  padding: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+

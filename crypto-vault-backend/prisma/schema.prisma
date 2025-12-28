@@ -1,0 +1,104 @@
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id            String      @id @default(cuid())
+  telegramId    String      @unique
+  username      String?
+  firstName     String?
+  lastName      String?
+  email         String?     @unique
+  phone         String?
+  dateOfBirth   DateTime?
+  dailyLimit    Float       @default(1000)
+  monthlyLimit  Float       @default(25000)
+  status        String      @default("ACTIVE") // ACTIVE, SUSPENDED, DEACTIVATED
+  kycStatus     String      @default("PENDING") // PENDING, APPROVED, REJECTED, EXPIRED
+  kycData       String?     // JSON string
+  walletAddress String?     @unique
+  referralCode  String?     @unique
+  referredBy    String?
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @updatedAt
+
+  cards         Card[]
+  transactions  Transaction[]
+  balances      Balance[]
+}
+
+model Card {
+  id                String      @id @default(cuid())
+  userId            String
+  user              User        @relation(fields: [userId], references: [id])
+  type              String      // VIRTUAL, PHYSICAL
+  status            String      @default("ACTIVE") // ACTIVE, INACTIVE, SUSPENDED, CANCELLED
+  lastFour          String
+  expiryMonth       Int
+  expiryYear        Int
+  cvv               String      // Encrypted
+  cardNumber        String?     @unique // Encrypted
+  physicalStatus    String?     // ORDERED, SHIPPED, DELIVERED, ACTIVATED
+  shippingAddress   String?     // JSON string
+  trackingNumber    String?
+  stripeCardId      String      @unique
+  stripeCardholderId String
+  dailyLimit        Float       @default(1000)
+  monthlyLimit      Float       @default(25000)
+  singleTxLimit     Float       @default(10000)
+  spentToday        Float       @default(0)
+  spentThisMonth    Float       @default(0)
+  frozen            Boolean     @default(false)
+  allowOnline       Boolean     @default(true)
+  allowInStore      Boolean     @default(true)
+  allowAtm          Boolean     @default(true)
+  allowInternational Boolean    @default(true)
+  createdAt         DateTime    @default(now())
+  updatedAt         DateTime    @updatedAt
+
+  transactions      Transaction[]
+}
+
+model Transaction {
+  id               String      @id @default(cuid())
+  userId           String
+  user             User        @relation(fields: [userId], references: [id])
+  cardId           String?
+  card             Card?       @relation(fields: [cardId], references: [id])
+  type             String      // CARD_PURCHASE, CARD_TOPUP, etc.
+  category         String?     // FOOD, TRANSPORT, etc.
+  amount           Float
+  currency         String      @default("USD")
+  cryptoAmount     Float?
+  cryptoCurrency   String?
+  merchantName     String?
+  merchantCategory String?
+  merchantLogo     String?
+  status           String      // PENDING, COMPLETED, FAILED, REFUNDED
+  failureReason    String?
+  stripeChargeId   String?     @unique
+  metadata         String?     // JSON string
+  fromUsername     String?
+  toUsername       String?
+  createdAt        DateTime    @default(now())
+}
+
+model Balance {
+  id           String    @id @default(cuid())
+  userId       String
+  user         User      @relation(fields: [userId], references: [id])
+  asset        String
+  assetType    String    // CRYPTO, STOCK, FIAT
+  total        Float     @default(0)
+  available    Float     @default(0)
+  locked       Float     @default(0)
+  cardReserved Float     @default(0)
+  updatedAt    DateTime  @updatedAt
+
+  @@unique([userId, asset])
+}

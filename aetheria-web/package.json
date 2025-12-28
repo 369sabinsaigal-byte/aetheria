@@ -1,0 +1,48 @@
+{
+  "name": "aetheria-web",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "lint": "eslint .",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@ramp-network/ramp-instant-sdk": "^6.2.0",
+    "@react-spring/web": "^10.0.3",
+    "@telegram-apps/sdk": "^3.11.8",
+    "@tma.js/bridge": "^2.2.0",
+    "@tma.js/sdk": "^3.1.2",
+    "@tma.js/transformers": "^1.1.1",
+    "@tma.js/types": "^1.0.2",
+    "@tonconnect/ui-react": "^2.3.1",
+    "axios": "^1.13.2",
+    "chart.js": "^4.5.1",
+    "framer-motion": "^12.23.26",
+    "lightweight-charts": "^5.1.0",
+    "lottie-react": "^2.4.1",
+    "lucide-react": "^0.562.0",
+    "react": "^19.2.0",
+    "react-chartjs-2": "^5.3.1",
+    "react-circular-progressbar": "^2.2.0",
+    "react-dom": "^19.2.0",
+    "react-swipeable-views": "^0.14.1",
+    "zustand": "^5.0.9"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.1",
+    "@types/node": "^24.10.1",
+    "@types/react": "^19.2.5",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^5.1.1",
+    "eslint": "^9.39.1",
+    "eslint-plugin-react-hooks": "^7.0.1",
+    "eslint-plugin-react-refresh": "^0.4.24",
+    "globals": "^16.5.0",
+    "typescript": "~5.9.3",
+    "typescript-eslint": "^8.46.4",
+    "vite": "^7.2.4"
+  }
+}

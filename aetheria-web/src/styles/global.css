@@ -1,0 +1,69 @@
+:root {
+  --ex-colors-background: #000000;
+  --ex-colors-text-primary: #ffffff;
+  --ex-typography-font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --ex-gradients-blue: linear-gradient(135deg, #007aff 0%, #00c6ff 100%);
+  --ex-animations-gradient-speed: 3s;
+  --ex-animations-shimmer: 1.5s linear;
+  --ex-shadows-soft: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --ex-transitions-fast: 0.2s ease;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--ex-colors-background);
+  color: var(--ex-colors-text-primary);
+  font-family: var(--ex-typography-font-family);
+}
+
+@keyframes ex-gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.ex-animated-gradient {
+  background-image: var(--ex-gradients-blue);
+  background-size: 200% 200%;
+  animation: ex-gradientShift var(--ex-animations-gradient-speed) linear infinite;
+}
+
+@keyframes ex-shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.ex-skeleton {
+  background: linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+  background-size: 200% 100%;
+  animation: ex-shimmer var(--ex-animations-shimmer) infinite;
+}
+
+.ex-elevated {
+  box-shadow: var(--ex-shadows-soft);
+  border-radius: 10px;
+}
+
+.depth-bar {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  opacity: 0.14;
+  pointer-events: none;
+  transition: width var(--ex-transitions-fast);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ex-animated-gradient, .ex-skeleton {
+    animation: none !important;
+  }
+}
